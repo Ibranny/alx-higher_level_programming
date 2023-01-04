@@ -1,7 +1,3 @@
-loc)  1.68 KB
-
-
-
 #!/usr/bin/python3
 """
 
