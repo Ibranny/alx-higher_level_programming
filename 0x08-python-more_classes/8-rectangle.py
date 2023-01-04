@@ -141,7 +141,6 @@ class Rectangle:
         Returns:
             string represenation of the object
 
-
         """
 
         return "Rectangle({:d}, {:d})".format(self.width, self.height)
