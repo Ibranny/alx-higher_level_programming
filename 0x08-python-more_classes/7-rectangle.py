@@ -10,6 +10,9 @@ This module is composed by a class that defines a Rectangle
 class Rectangle:
     """ Class that defines a rectangle """
 
+    number_of_instances = 0
+    print_symbol = "#"
+
     def __init__(self, width=0, height=0):
         """ Method that initializes the instance
 
@@ -17,11 +20,11 @@ class Rectangle:
             width: rectangle width
             height: rectangle height
 
-
         """
 
         self.width = width
         self.height = height
+        Rectangle.number_of_instances += 1
 
     @property
     def width(self):
@@ -118,16 +121,16 @@ class Rectangle:
         Returns:
             str of the rectangle
 
+
         """
 
         rectangle = ""
 
         if self.width == 0 or self.height == 0:
-
             return rectangle
 
         for i in range(self.height):
-            rectangle += ("#" * self.width) + "\n"
+            rectangle += (str(self.print_symbol) * self.width) + "\n"
 
         return rectangle[:-1]
 
@@ -137,6 +140,16 @@ class Rectangle:
         Returns:
             string represenation of the object
 
+
         """
 
         return "Rectangle({:d}, {:d})".format(self.width, self.height)
+
+    def __del__(self):
+        """ Method that prints a message when the instance is deleted
+
+
+        """
+
+        Rectangle.number_of_instances -= 1
+        print("Bye rectangle...")
